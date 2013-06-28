@@ -1,0 +1,13 @@
+# encoding: utf-8
+# Simplified Chinese strings go here for Rails i18n
+# Author: Steven.W
+# Based on file: en.yml
+
+zh:
+  label_issue_checklist_plural: 检查列表
+  field_checklist: 检查列表
+  label_checklist_save_log: 保存检查列表变更到问题日志
+  label_checklist_done_ratio: 设置列表完成比率
+  permission_view_checklists: 查看检查列表
+  permission_done_checklists: 完成检查项
+  permission_edit_checklists: 编辑检查项

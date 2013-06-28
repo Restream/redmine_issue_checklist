@@ -1,0 +1,24 @@
+<%  if !@issue.blank? &&  @issue.checklist.any? && User.current.allowed_to?(:view_checklists, @project) %>
+
+<hr />
+<div id="issue_checklist">
+  <p><strong><%=l(:label_issue_checklist_plural)%></strong></p>
+  
+  <ul id="issue_checklist_items">
+  <% @issue.checklist.each do |checklist_item| %>
+    <%= render :partial => 'issue_checklists/checklist_item', :object => checklist_item %>
+  <% end %>
+  </ul>
+</div>
+
+<% end %>
+
+<% content_for :header_tags do %>
+	<% if Redmine::VERSION.to_a[0] == 2 and Redmine::VERSION.to_a[1] >= 1 %>
+  	<%= javascript_include_tag 'jquery.klass.js', :plugin => 'redmine_issue_checklist'  %>
+		<%= javascript_include_tag 'issue_checklist.jquery.js', :plugin => 'redmine_issue_checklist'  %>
+	<% else %>
+		<%= javascript_include_tag 'issue_checklist.prototype.js', :plugin => 'redmine_issue_checklist'  %>
+	<% end %>
+	<%= stylesheet_link_tag :issue_checklist, :plugin => 'redmine_issue_checklist'  %>
+<% end %>

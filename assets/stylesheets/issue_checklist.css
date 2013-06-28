@@ -1,0 +1,41 @@
+
+div#issue_checklist ul {
+	list-style: none;    
+	padding-left: 0px;
+	margin-bottom: 0px;
+}
+
+div#issue_checklist li {
+  padding-bottom: 10px;
+  margin-left: 10px;
+}
+
+
+input#checklist_item {
+  margin-right: 10px;
+}
+
+#issue_checklist a.delete img {
+  vertical-align: top;
+  margin-left: 5px;
+}
+
+#issue_checklist li:hover a.delete {opacity: 1;}  
+#issue_checklist a.delete {opacity: 0.4;}
+
+span.checklist-item {
+  display: block;
+  margin-bottom: 5px;
+}  
+
+span.checklist-item.is-done-checklist-item, #issue_checklist_items li.is-done-checklist-item {
+  text-decoration: line-through;
+  color: #999;
+}
+
+span.checklist-item .delete { margin-left: 2px; opacity: 0.4;}
+span.checklist-item:hover .delete {opacity: 1;}  
+
+span.checklist-item input { margin-right: 6px; }
+
+#add_checklist_item_input { width: 40%;}

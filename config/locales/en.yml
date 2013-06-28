@@ -1,0 +1,9 @@
+# English strings go here for Rails i18n
+en:
+  label_issue_checklist_plural: Checklist
+  field_checklist: Checklist
+  label_checklist_save_log: Save changes to issue log
+  label_checklist_done_ratio: Set issue done ratio
+  permission_view_checklists: View checklist
+  permission_done_checklists: Done checklist items
+  permission_edit_checklists: Edit checklist items

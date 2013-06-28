@@ -1,0 +1,11 @@
+<p>  
+  <label><%= l(:label_checklist_save_log) %></label>
+  <%= check_box_tag 'settings[save_log]', 1, @settings[:save_log] %>
+</p>
+
+<% if Setting.issue_done_ratio == "issue_field" %>
+<p>  
+  <label><%= l(:label_checklist_done_ratio) %></label>
+  <%= check_box_tag 'settings[issue_done_ratio]', 1, @settings[:issue_done_ratio] %>
+</p>
+<% end %>

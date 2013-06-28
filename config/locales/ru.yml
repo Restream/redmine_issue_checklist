@@ -1,0 +1,10 @@
+# encoding: utf-8
+ru:
+  label_issue_checklist_plural: Чеклист
+  field_checklist: Чеклист
+  label_checklist_save_log: Сохранять изменения в истории
+  label_checklist_done_ratio: Рассчитывать готовность задачи
+  permission_view_checklists: Просматривать чеклисты
+  permission_done_checklists: Выполнять чеклисты
+  permission_edit_checklists: Редактировать чеклисты
+  

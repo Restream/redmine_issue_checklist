@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  is_done: false
+  subject: First todo
+  issue_id: 1
+two:
+  id: 2
+  is_done: false
+  subject: Second todo
+  issue_id: 1
+three:
+  id: 3
+  is_done: true
+  subject: Third todo
+  issue_id: 2

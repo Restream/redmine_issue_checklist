@@ -1,0 +1,4 @@
+= issue_checklist
+
+== Test
+rake test:plugins PLUGIN=redmine_issue_checklist RAILS_ENV=test_sqlite3

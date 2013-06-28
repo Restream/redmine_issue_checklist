@@ -1,0 +1,9 @@
+# encoding: utf-8
+# German strings go here for Rails i18n
+# German translation by Tobias Fischer https://github.com/paginagmbh
+de:
+  label_issue_checklist_plural: Checkliste
+  field_checklist: Checkliste
+  label_checklist_save_log: "Speichere �nderungen in der Ticket-Historie"
+  label_checklist_done_ratio: Aktualisiere den Ticket-Fortschritt
+

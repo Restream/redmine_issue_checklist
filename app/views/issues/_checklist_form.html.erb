@@ -1,0 +1,24 @@
+<%= fields_for :issue, issue do |f| -%>
+<div class="tabular">
+  <p id="issue_checklist_form">
+    <label><%=l(:label_issue_checklist_plural)%></label>
+    <span id="checklist_form_items"> </span> 
+ 		  <%= text_field_tag 'new_checklist', '', :id => 'add_checklist_item_input' %>   
+   		<%= link_to '', '#', :id => 'add_checklist_item_button', :class => "tag-add icon icon-add" %>          
+
+    <%= javascript_tag "observeIssueChecklistField('checklist_form_items', 'add_checklist_item_input', 'add_checklist_item_button');" %>
+    <%= javascript_tag "createIssueChecklist(#{@issue.checklist.collect{|cli| {:is_done => cli.is_done, :subject => cli.subject, :id => cli.id}}.to_json.html_safe});" %>
+  </p>
+</div>
+<% end if User.current.allowed_to?(:edit_checklists, @project) -%>
+
+
+<% content_for :header_tags do %>
+  <% if Redmine::VERSION.to_a[0] == 2 and Redmine::VERSION.to_a[1] >= 1 %>
+    <%= javascript_include_tag 'jquery.klass.js', :plugin => 'redmine_issue_checklist'  %>
+    <%= javascript_include_tag 'issue_checklist.jquery.js', :plugin => 'redmine_issue_checklist'  %>
+  <% else %>
+    <%= javascript_include_tag 'issue_checklist.prototype.js', :plugin => 'redmine_issue_checklist'  %>
+  <% end %>
+  <%= stylesheet_link_tag :issue_checklist, :plugin => 'redmine_issue_checklist'  %>
+<% end %>
