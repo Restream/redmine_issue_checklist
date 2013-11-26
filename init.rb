@@ -6,7 +6,7 @@ Redmine::Plugin.register :redmine_issue_checklist do
   name 'Redmine Issue Checklist plugin'
   author 'Kirill Bezrukov'
   description 'This is a issue checklist plugin for Redmine'
-  version '2.0.5'
+  version '2.0.6'
   url 'http://redminecrm.com'
   author_url 'mailto:kirbez@redminecrm.com'
 

@@ -1,5 +1,4 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'issue_checklists_controller'
 
 class IssueChecklistsControllerTest < ActionController::TestCase
   fixtures :projects,
@@ -26,8 +25,7 @@ class IssueChecklistsControllerTest < ActionController::TestCase
            :journal_details,
            :queries,
            :issue_checklists
-  # Replace this with your real tests.
-  
+
   def setup
     RedmineIssueChecklist::TestCase.prepare
     Setting.default_language = 'en'
@@ -57,5 +55,5 @@ class IssueChecklistsControllerTest < ActionController::TestCase
     xhr :post, :done, :is_done => true, :checklist_item_id => "1"
     assert_response 403
   end      
-  
+
 end

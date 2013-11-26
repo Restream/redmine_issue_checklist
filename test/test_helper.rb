@@ -1,8 +1,8 @@
-require File.expand_path(File.dirname(__FILE__) + '/../../../../test/test_helper')
-# require 'redgreen'  
+require File.expand_path('../../../../test/test_helper', __FILE__)
 
-Engines::Testing.set_fixture_path    
-
+#Engines::Testing.set_fixture_path
+ActiveRecord::Fixtures.create_fixtures(File.dirname(__FILE__) + '/fixtures/',
+                                       File.basename('issue_checklists', '.*'))
 class RedmineIssueChecklist::TestCase       
   def self.prepare
     Role.find(1, 2, 3, 4).each do |r| 
