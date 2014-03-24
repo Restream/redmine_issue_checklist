@@ -1,20 +1,20 @@
-require_dependency 'issue'  
+require_dependency 'issue'
 
 module RedmineIssueChecklist
-  module Patches    
-    
+  module Patches
+
     module IssuePatch
-      
-      def self.included(base) # :nodoc: 
+
+      def self.included(base) # :nodoc:
         base.send(:include, InstanceMethods)
-        base.class_eval do    
+        base.class_eval do
           unloadable # Send unloadable so it will not be unloaded in development
-          
+
           alias_method_chain :copy_from, :checklist
           has_many :checklist, :class_name => "IssueChecklist", :dependent => :destroy
-        end  
+        end
 
-      end  
+      end
 
       module InstanceMethods
         def copy_from_with_checklist(arg, options={})
@@ -26,12 +26,32 @@ module RedmineIssueChecklist
           end
           self
         end
-      end      
-        
+
+        def update_checklist_items(checklist_items, create_journal = false)
+          checklist_items ||= []
+
+          old_checklist = checklist.collect(&:info).join(', ')
+
+          checklist.destroy_all
+          checklist << checklist_items.uniq.collect { |cli| IssueChecklist.new(:is_done => cli[:is_done],
+                                                                               :subject => cli[:subject]) }
+
+          new_checklist = checklist.collect(&:info).join(', ')
+
+          if current_journal && create_journal && (new_checklist != old_checklist)
+            current_journal.details << JournalDetail.new(:property => 'attr',
+                                                         :prop_key => 'checklist',
+                                                         :old_value => old_checklist,
+                                                         :value => new_checklist)
+          end
+        end
+
+      end
+
     end
-    
+
   end
-end  
+end
 
 
 unless Issue.included_modules.include?(RedmineIssueChecklist::Patches::IssuePatch)
