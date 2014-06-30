@@ -118,9 +118,11 @@ Redmine.IssueChecklist = jQuery.klass({
 
     reader.onload = function(event) {
       var result = event.target.result;
-      var lines = result.split("\n");
+      var lines = result.split("\n").filter(function(el) {
+        return !$.isEmptyObject(el);
+      });
 
-      if (window.confirm('Import ' + lines.length + ' checklist items?')) {
+      if (lines.length && window.confirm('Import ' + lines.length + ' checklist items?')) {
         lines.forEach(function(line) {
           _this.addChecklistItem(line);
         });
