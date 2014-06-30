@@ -86,7 +86,7 @@ Redmine.IssueChecklist = jQuery.klass({
   onDragOver: function(event) {
     event.stopPropagation();
     event.preventDefault();
-    event.dataTransfer.dropEffect = 'copy';
+    event.originalEvent.dataTransfer.dropEffect = 'copy';
   },
 
   onDrop: function(event) {
