@@ -4,15 +4,17 @@ window.onload = function() {
 
 var Redmine = Redmine || {};
 
-$.fn.issue_check_list = function(element, input, button) {};
+$.fn.issue_check_list = function(element, input, button, fileInput) {};
 
 Redmine.IssueChecklist = jQuery.klass({
-  init: function(element, input, button, file) {
-    this.element   = $('#'+element);
-    this.input     = $('#'+input);
-    this.button    = $('#'+button);
+  init: function(element, input, button, fileInput) {
+    this.element   = $('#' + element);
+    this.input     = $('#' + input);
+    this.button    = $('#' + button);
+    this.fileInput = $('#' + fileInput);
     this.checklist = {};
     this.button.click($.proxy(this.readChecklist, this));
+    this.fileInput.on('change', $.proxy(this.onFileInputChange, this));
     this.input.keypress($.proxy(this.onKeyPress, this));
     this.input.on('dragover', $.proxy(this.onDragOver, this));
     this.input.on('drop', $.proxy(this.onDrop, this));
@@ -98,8 +100,16 @@ Redmine.IssueChecklist = jQuery.klass({
     }
   },
 
+  onFileInputChange: function(event) {
+    var file = event.target.files[0];
+    if (file) {
+      this.parseMultiLineFile(file);
+    }
+  },
+
   parseMultiLineFile: function (file) {
-    if (!(window.File && window.FileReader)) {
+    if (!(window.File && window.FileReader) || !file ||
+        !file.type.match('text.*')) {
       return false;
     }
 
@@ -108,17 +118,22 @@ Redmine.IssueChecklist = jQuery.klass({
 
     reader.onload = function(event) {
       var result = event.target.result;
-      result.split("\n").forEach(function(line) {
-        _this.addChecklistItem(line);
-      });
+      var lines = result.split("\n");
+
+      if (window.confirm('Import ' + lines.length + ' checklist items?')) {
+        lines.forEach(function(line) {
+          _this.addChecklistItem(line);
+        });
+      };
     };
-    
+
     reader.readAsText(file);
   }
 });
 
-function observeIssueChecklistField(element, input, add_button) {
-  issueChecklist = new Redmine.IssueChecklist(element, input, add_button);
+function observeIssueChecklistField(element, input, add_button, fileInput) {
+  issueChecklist = new Redmine.IssueChecklist(element, input,
+                                              add_button, fileInput);
 }
 
 function createIssueChecklist(checkList) {
