@@ -55,7 +55,7 @@ To manage checklist-related permissions, go to **Administration > Roles and perm
 
 ## Testing
 
-Run test using the following command:
+Run tests using the following command:
 
     rake redmine:plugins:test NAME=redmine_issue_checklist RAILS_ENV=test_sqlite3
  
