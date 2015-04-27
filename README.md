@@ -26,11 +26,16 @@ This plugin version is compatible only with Redmine 2.0 and later.
       
             git clone https://github.com/Undev/redmine_issue_checklist.git plugins/redmine_issue_checklist
             
+2. Update the Gemfile.lock file by running the following commands:  
+
+         rm Gemfile.lock  
+         bundle install
+            
 3. This plugin requires a migration. Run the following command to upgrade your database (make a database backup before):  
 
         bundle exec rake redmine:plugins:migrate RAILS_ENV=production 
         
-3. Restart Redmine.
+4. Restart Redmine.
 
 Now you should be able to see the plugin in **Administration > Plugins**.
 
@@ -58,6 +63,10 @@ To manage checklist-related permissions, go to **Administration > Roles and perm
 Run tests using the following command:
 
     rake redmine:plugins:test NAME=redmine_issue_checklist RAILS_ENV=test_sqlite3
+    
+## Maintainers
+
+Danil Tashkinov, [github.com/nodecarter](https://github.com/nodecarter)
  
 ## License
 
