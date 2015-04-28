@@ -3,9 +3,9 @@ require 'redmine'
 require 'redmine_issue_checklist/redmine_issue_checklist'
 
 Redmine::Plugin.register :redmine_issue_checklist do
-  name 'Redmine Issue Checklist plugin'
+  name 'Redmine Issue Checklist Plugin'
   author 'Kirill Bezrukov'
-  description 'This is a issue checklist plugin for Redmine'
+  description 'This plugin adds checklists to Redmine issues.'
   version '2.0.7'
   url 'http://redminecrm.com'
   author_url 'mailto:kirbez@redminecrm.com'
