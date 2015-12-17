@@ -8,8 +8,6 @@ module RedmineIssueChecklist
       def self.included(base) # :nodoc:
         base.send(:include, InstanceMethods)
         base.class_eval do
-          unloadable # Send unloadable so it will not be unloaded in development
-
           alias_method_chain :copy_from, :checklist
           has_many :checklist, :class_name => "IssueChecklist", :dependent => :destroy
         end

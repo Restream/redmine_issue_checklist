@@ -1,5 +1,4 @@
 class IssueChecklistsController < ApplicationController
-  unloadable
   
   before_filter :find_checklist_item
   
