@@ -1,5 +1,4 @@
 class IssueChecklist < ActiveRecord::Base
-  unloadable
   belongs_to :issue
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   has_one :comment, :as => :commented, :dependent => :delete
