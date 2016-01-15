@@ -2,11 +2,17 @@
 <div class="tabular">
   <p id="issue_checklist_form">
     <label><%=l(:label_issue_checklist_plural)%></label>
-    <span id="checklist_form_items"> </span> 
- 		  <%= text_field_tag 'new_checklist', '', :id => 'add_checklist_item_input' %>   
-   		<%= link_to '', '#', :id => 'add_checklist_item_button', :class => "tag-add icon icon-add" %>          
+    <span id="checklist_form_items"> </span>
+    <%= text_field_tag 'new_checklist', '',
+                       :id => 'add_checklist_item_input' %>
+    <%= link_to '', '#',
+                :id => 'add_checklist_item_button',
+                :class => "tag-add icon icon-add" %>
+    <%= file_field_tag 'import_checklist',
+                       :id => 'import_checklist_items_input',
+                       :accept => 'text/plain' %>
 
-    <%= javascript_tag "observeIssueChecklistField('checklist_form_items', 'add_checklist_item_input', 'add_checklist_item_button');" %>
+    <%= javascript_tag "observeIssueChecklistField('checklist_form_items', 'add_checklist_item_input', 'add_checklist_item_button', 'import_checklist_items_input');" %>
     <%= javascript_tag "createIssueChecklist(#{@issue.checklist.collect{|cli| {:is_done => cli.is_done, :subject => cli.subject, :id => cli.id}}.to_json.html_safe});" %>
   </p>
 </div>
