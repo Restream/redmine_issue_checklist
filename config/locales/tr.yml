@@ -1,0 +1,9 @@
+# Turkish strings go here for Rails i18n
+tr:
+  label_checklist_plural: Kontrol Listeleri
+  field_checklist: Kontrol Listesi
+  label_checklist_save_log: Değişiklikleri iş geçmişine kaydet
+  label_checklist_done_ratio: İş tamamlanma oranını set et
+  permission_view_checklists: Kontrol listelerini gör
+  permission_done_checklists: Kontrol listelerini tikle
+  permission_edit_checklists: Kontrol listelerini düzenle
