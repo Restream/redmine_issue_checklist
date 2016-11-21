@@ -1,7 +1,7 @@
 # Redmine Issue Checklist Plugin
 
-[![Build Status](https://travis-ci.org/Undev/redmine_issue_checklist.png?branch=master)](https://travis-ci.org/Undev/redmine_issue_checklist)
-[![Code Climate](https://codeclimate.com/github/Undev/redmine_issue_checklist.png)](https://codeclimate.com/github/Undev/redmine_issue_checklist)
+[![Build Status](https://travis-ci.org/Restream/redmine_issue_checklist.svg?branch=master)](https://travis-ci.org/Restream/redmine_issue_checklist)
+[![Code Climate](https://codeclimate.com/github/Restream/redmine_issue_checklist/badges/gpa.svg)](https://codeclimate.com/github/Restream/redmine_issue_checklist)
 
 This plugin enables you to add checklists to Redmine issues. 
 
@@ -9,7 +9,7 @@ The initial author of the plugin is [Kirill Bezrukov](http://www.redminecrm.com/
 
 ## Compatibility
 
-This plugin version is compatible only with Redmine 2.0 and later.
+This plugin version is compatible only with Redmine 3.0 and later.
 
 ## Installation
 
@@ -24,12 +24,11 @@ This plugin version is compatible only with Redmine 2.0 and later.
             
       Copy the plugin from GitHub using the following commands:
       
-            git clone https://github.com/Undev/redmine_issue_checklist.git plugins/redmine_issue_checklist
+            git clone https://github.com/Restream/redmine_issue_checklist.git plugins/redmine_issue_checklist
             
 2. Update the Gemfile.lock file by running the following commands:  
 
-         rm Gemfile.lock  
-         bundle install
+        bundle install
             
 3. This plugin requires a migration. Run the following command to upgrade your database (make a database backup before):  
 
@@ -44,19 +43,19 @@ Now you should be able to see the plugin in **Administration > Plugins**.
 The Redmine Issue Checklist plugin enables you to add checklists to Redmine issues.
 
 You can configure the plugin to track the checklist changes in the issue log and change the issue done ratio based on the checklist progress. To do this, go to **Administration > Plugins**, clik**Configure** and select the corresponding check boxes.  
-![plugin settings](issue_checklist_1.PNG)
+![plugin settings](doc/issue_checklist_1.png)
 
 To add a checklist to an issue, enter the checklist item text into the the **Checklist** field in the issue description and click the **+** button.  
-![checklist item](issue_checklist_2.PNG)
+![checklist item](doc/issue_checklist_2.png)
 
 You can add as many checklist items as you need. To rearrange the checklist, drag and drop the items in the desired order. To delete an item, click the trash bin icon.  
-![checklist item](issue_checklist_3.PNG)
+![checklist item](doc/issue_checklist_3.png)
 
 To mark the completed checklist items, select the corresponding check boxes. The plugin will display the changes in the issue log and change the issue done ratio, if you have configured it accordingly.  
-![progress](issue_checklist_4.PNG)
+![progress](doc/issue_checklist_4.png)
 
 To manage checklist-related permissions, go to **Administration > Roles and permissions**, click the role name and select or clear the required check boxes.  
-![permissions](issue_checklist_5.PNG)
+![permissions](doc/issue_checklist_5.png)
 
 ## Testing
 
