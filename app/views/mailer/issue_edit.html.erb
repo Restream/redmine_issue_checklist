@@ -1,0 +1,16 @@
+<%= l(:text_issue_added, :id => link_to("##{@issue.id}", @issue_url), :author => h(@issue.author)).html_safe %>
+<hr />
+<%= render :partial => 'issue', :formats => [:html], :locals => { :issue => @issue, :users => @users, :issue_url => @issue_url } %>
+
+<div id="issue_checklist">
+  <p><strong><%= l(:label_issue_checklist_plural) %></strong></p>
+  <ul id="issue_checklist_items">
+    <% @issue.checklist.each do |checklist_item| %>
+        <li>
+          <%= check_box_tag 'checklist_item', '1', checklist_item.is_done %>
+          <%= textilizable(checklist_item, :subject).gsub(/<\/?(p|h\d+|li|ul)>/, '').strip.html_safe %>
+        </li>
+    <% end %>
+  </ul>
+</div>
+
