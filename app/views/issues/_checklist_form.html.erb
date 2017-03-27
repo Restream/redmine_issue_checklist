@@ -14,6 +14,7 @@
 
       <%= javascript_tag "observeIssueChecklistField('checklist_form_items', 'add_checklist_item_input', 'add_checklist_item_button', 'import_checklist_items_input');" %>
       <%= javascript_tag "createIssueChecklist(#{@issue.checklist.collect { |cli| { is_done: cli.is_done, subject: cli.subject, id: cli.id } }.to_json.html_safe});" %>
+      <%= hidden_field_tag 'with_checklist_items', 1 %>
     </p>
   </div>
 <% end if User.current.allowed_to?(:edit_checklists, @project) -%>
