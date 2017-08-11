@@ -1,0 +1,9 @@
+# Portuguese strings go here for Rails i18n
+pt:
+  label_issue_checklist_plural: Checklist
+  field_checklist: Checklist
+  label_checklist_save_log: Salvar as alterações do checklists nos logs da tarefa
+  label_checklist_done_ratio: Automaticamente alterar o percentual de conclusão ao concluir o checklist
+  permission_view_checklists: Visualizar itens de checklist
+  permission_done_checklists: Alterar o percentual de conclusão baseado no checklist
+  permission_edit_checklists: Editar itens do checklist
