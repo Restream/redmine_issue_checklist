@@ -36,8 +36,9 @@ module RedmineIssueChecklist
 
       def save_checklist_to_issue(context, create_journal)
         issue = context[:issue]
+        with_checklist_items = context[:params] && context[:params][:with_checklist_items]
         checklist_items = context[:params] && context[:params][:check_list_items]
-        issue.update_checklist_items(checklist_items, create_journal) if issue && checklist_items
+        issue.update_checklist_items(checklist_items, create_journal) if issue && with_checklist_items
       end
 
     end
