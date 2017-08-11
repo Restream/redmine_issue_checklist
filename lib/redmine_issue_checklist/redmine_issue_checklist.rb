@@ -4,6 +4,7 @@ require 'redmine_issue_checklist/hooks/model_issue_hook'
 Rails.configuration.to_prepare do
   require 'redmine_issue_checklist/patches/issue_patch'
   require 'redmine_issue_checklist/patches/issues_controller_patch'
+  require 'redmine_issue_checklist/patches/mailer_patch'
 end
 
 module RedmineIssueChecklist
