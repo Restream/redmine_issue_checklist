@@ -2,10 +2,7 @@ class IssueChecklist < ActiveRecord::Base
   belongs_to :issue
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_one :comment, as: :commented, dependent: :delete
-  acts_as_list
-
-  attr_accessible :is_done, :subject
-  attr_protected :id
+  acts_as_tree
 
   validates_presence_of :subject
 

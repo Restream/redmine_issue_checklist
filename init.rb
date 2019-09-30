@@ -21,7 +21,7 @@ Redmine::Plugin.register :redmine_issue_checklist do
     map.project_module :issue_tracking do |map|
       map.permission :view_checklists, {}
       map.permission :done_checklists, { issue_checklist: :done }
-      map.permission :edit_checklists, { issue_checklist: :delete, issue_checklist: :done }
+      map.permission :edit_checklists, { issue_checklist: [:delete, :done] }
     end
   end
 
