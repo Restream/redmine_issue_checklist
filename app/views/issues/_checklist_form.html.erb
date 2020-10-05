@@ -20,7 +20,7 @@
 
 
 <% content_for :header_tags do %>
-  <% if Redmine::VERSION::MAJOR == 3 || (Redmine::VERSION::MAJOR == 2 && Redmine::VERSION::MINOR >= 1) %>
+  <% if Redmine::VERSION::MAJOR >= 3 || (Redmine::VERSION::MAJOR == 2 && Redmine::VERSION::MINOR >= 1) %>
     <%= javascript_include_tag 'jquery.klass.js', plugin: 'redmine_issue_checklist' %>
     <%= javascript_include_tag 'issue_checklist.jquery.js', plugin: 'redmine_issue_checklist' %>
   <% else %>

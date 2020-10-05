@@ -1,6 +1,8 @@
 require 'redmine'
+require 'acts_as_list'
 
 require 'redmine_issue_checklist/redmine_issue_checklist'
+
 
 Redmine::Plugin.register :redmine_issue_checklist do
   name 'Redmine Issue Checklist Plugin'
