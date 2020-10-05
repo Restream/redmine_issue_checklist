@@ -1,4 +1,4 @@
-class CreateIssueChecklists < ActiveRecord::Migration
+class CreateIssueChecklists < ActiveRecord::Migration[4.2]
   def self.up
     create_table :issue_checklists do |t|
       t.boolean :is_done, default: false

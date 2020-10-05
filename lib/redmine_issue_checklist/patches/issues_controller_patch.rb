@@ -4,7 +4,9 @@ module RedmineIssueChecklist
       extend ActiveSupport::Concern
 
       included do
-        alias_method_chain :build_new_issue_from_params, :checklist
+#        alias_method_chain :build_new_issue_from_params, :checklist
+         alias_method :build_new_issue_from_params_without_checklist,:build_new_issue_from_params       
+         alias_method :build_new_issue_from_params, :build_new_issue_from_params_with_checklist
       end
 
       def build_new_issue_from_params_with_checklist

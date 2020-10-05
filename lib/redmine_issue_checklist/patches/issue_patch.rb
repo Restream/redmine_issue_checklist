@@ -8,7 +8,9 @@ module RedmineIssueChecklist
       def self.included(base) # :nodoc:
         base.send(:include, InstanceMethods)
         base.class_eval do
-          alias_method_chain :copy_from, :checklist
+
+          alias_method :copy_from_without_checklist,:copy_from
+          alias_method :copy_from, :copy_from_with_checklist
           has_many :checklist, class_name: 'IssueChecklist', dependent: :destroy
         end
 
